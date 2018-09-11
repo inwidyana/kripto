@@ -21,6 +21,12 @@ small{
     bottom:0;
 }
 
+.cover-page{
+    margin: 50px auto 100px;
+    padding: 10px;
+    font-size: 50px;
+}
+
 a.nav-link{
     margin-right: 50px;
 }
