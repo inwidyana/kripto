@@ -1,4 +1,28 @@
-.App {
-  text-align: center;
+#form-input-output{
+    width: 100%;
+    padding: 0 20%;
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+}
 
+input.round-input{
+    border-radius: 20px;
+    border: 0;
+    background: white;
+    line-height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+h5.legend{
+    font-size: 25px;
+}
+
+.cover-page{
+    margin: 50px auto 100px;
+    padding: 10px;
+    font-size: 50px;
 }
