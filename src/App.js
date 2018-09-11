@@ -83,11 +83,20 @@ class App extends Component {
 
         var plainText = '';
         var toBeDecrypted = '';
-        for(var i = 0; i < cipher.length; i+=3) {
-            toBeDecrypted = cipher[i].toUpperCase() ? cipher[i].toUpperCase() : cipher[i];
-            toBeDecrypted += cipher[i + 1].toUpperCase() ? cipher[i + 1].toUpperCase() : cipher[i];
-            toBeDecrypted += cipher[i + 2].toUpperCase() ? cipher[i + 2].toUpperCase() : cipher[i + 2];
-            plainText += mapping[toBeDecrypted];
+        var i = 0;
+        while(i < cipher.length) {
+            if(mapping[cipher[i]]) {
+                toBeDecrypted = cipher[i] ? cipher[i].toUpperCase() : cipher[i];
+                plainText += mapping[toBeDecrypted] ? mapping[toBeDecrypted] : '';
+                i++
+            }
+            else {
+                toBeDecrypted = cipher[i] ? cipher[i].toUpperCase() : cipher[i];
+                toBeDecrypted += cipher[i + 1] ? cipher[i + 1].toUpperCase() : cipher[i + 1];
+                toBeDecrypted += cipher[i + 2] ? cipher[i + 2].toUpperCase() : cipher[i + 2];
+                plainText += mapping[toBeDecrypted] ? mapping[toBeDecrypted] : '';
+                i+=3
+            }
         }
         return plainText;
     }
@@ -96,7 +105,7 @@ class App extends Component {
         var cipher = '';
         var toBeEncrypted = '';
         for(var char of plainText) {
-            toBeEncrypted = (char.toUpperCase().charCodeAt(0) + 1) %128;
+            toBeEncrypted = (char.charCodeAt(0) + 1) %128;
             cipher += String.fromCharCode(toBeEncrypted);
         }
         return cipher;
@@ -106,7 +115,7 @@ class App extends Component {
         var plainText = '';
         var toBeDecrypted = '';
         for(var char of cipher) {
-            toBeDecrypted = (char.toUpperCase().charCodeAt(0) - 1);
+            toBeDecrypted = (char.charCodeAt(0) - 1);
             if(toBeDecrypted < 0) {
                 toBeDecrypted += 128;
             }
@@ -122,8 +131,8 @@ class App extends Component {
     }
 
     static decrypt(cipher) {
-        var plainText = App.multialphabeticDecrypt(cipher);
-        plainText = App.caesarDecrypt(plainText);
+        var plainText = App.caesarDecrypt(cipher);
+        plainText = App.multialphabeticDecrypt(plainText);
         return plainText;
     }
 
