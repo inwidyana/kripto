@@ -1,0 +1,31 @@
+html{
+    height: 100%;
+}
+
+body{
+    background-image: linear-gradient(to bottom right, #30A7CD, #9081F1);
+    color: white;
+    height: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+small{
+    position: absolute;
+    width: 100%;
+    line-height: 40px;
+    font-size: 0.7em;
+    text-align: center;
+    bottom:0;
+}
+
+a.nav-link{
+    margin-right: 50px;
+}
+
+img#about-pic{
+    width: 600px;
+    height: auto;
+}
