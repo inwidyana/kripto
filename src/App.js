@@ -158,9 +158,9 @@ class App extends Component {
 
                 <div id="form-input-output">
                     <form>
-                        <h5 className="legend">CIPHER TEXT</h5>
-                        <input type="text" className="round-input" onChange={this.getEncryptedText} value={this.state.toBeEncrypted}/>
                         <h5 className="legend">PLAIN TEXT</h5>
+                        <input type="text" className="round-input" onChange={this.getEncryptedText} value={this.state.toBeEncrypted}/>
+                        <h5 className="legend">CIPHER TEXT</h5>
                         <input type="text" className="round-input" onChange={this.getDecryptedText} value={this.state.toBeDecrypted}/>
                     </form>
                 </div>
